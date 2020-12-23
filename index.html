@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="bg-body">
+    <div class="port">
+        <h1>CRUD OF CARS</h1>
+    </div>
+    <div class="container mt-5">
+        <div class="card bg-dark mb">
+            <div class="card-body shadow-card">
+                <form id="form-user" onsubmit="event.preventDefault(), addCars()" action="/cars.php">
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" class="form-control" id="brand" placeholder="Enter the brand of the car" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" class="form-control" id="model" placeholder="Enter the model of the car" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color</label>
+                        <input type="text" class="form-control" id="color" placeholder="Enter the color" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="Enter the model of the car" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price" placeholder="Enter the model of the car" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <table class="table table-dark shadow-card">
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody id="container-cars">
+                
+            </tbody>
+        </table>
+    </div>
+    <div class="port">
+        <p>derechos reservados</p>
+    </div>
+    <script src="./javascript.js"></script>
+</body>
+</html>
