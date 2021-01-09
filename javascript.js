@@ -70,17 +70,18 @@ function deleteCar(id) {
 function enableUpdateCar (id){
     updatingId = id;
     const car = cars.find((element) => element.id === id );
-   document.getElementById('brand').value = car.brand;
-   document.getElementById('model').value = car.model;
-   document.getElementById('color').value = car.color;
-   document.getElementById('year').value = car.year;
-   document.getElementById('price').value = car.price;
+    document.getElementById('brand').value = car.brand;
+    document.getElementById('model').value = car.model;
+    document.getElementById('color').value = car.color;
+    document.getElementById('year').value = car.year;
+    document.getElementById('price').value = car.price;
 
-   updating = true;
+    updating = true;
     const button = document.getElementById('save');
     button.textContent = 'Actualizar';
     button.classList.remove('btn-secondary');
     button.classList.add('btn-primary');
+    document.getElementById('cancel').classList.remove('d-none');
 }
 
 function addCar() {
@@ -128,13 +129,19 @@ function updateCar(){
     car.year = year;
     car.price = price;
     printCars();
+    cancelEdition();  
+}
+
+function cancelEdition (){
     document.getElementById('form-car').reset();
     updating = false;
     updatingId = -1;
     const button = document.getElementById('save');
     button.textContent = 'Submit';
     button.classList.remove('btn-primary');
-    button.classList.add('btn-secondary');    
+    button.classList.add('btn-secondary');
+    document.getElementById('cancel').classList.add('d-none');    
 }
+
 
 printCars();
