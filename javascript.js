@@ -1,4 +1,4 @@
-let cars = [
+const cars = [
     {   
         id: 1,
         brand: 'Chevrolet',
@@ -33,6 +33,9 @@ let cars = [
     }
 ];
 
+let updating = false;
+let updatingId = -1;
+
 function printCars() {
     const container = document.getElementById('container-cars');
     let car = '';
@@ -47,6 +50,9 @@ function printCars() {
                      <button onclick="deleteCar(${element.id})" class="btn btn-secondary">
                         Eliminar
                     </button>
+                    <button onclick="enableUpdateCar(${element.id})" class="btn btn-primary">
+                        Actualizar
+                    </button>
                 </td>
             </tr>`;
     });
@@ -54,15 +60,34 @@ function printCars() {
 }
 
 function deleteCar(id) {
-    const index = cars.findIndex((element) => element.id == id );
+    const index = cars.findIndex((element) => element.id === id );
     cars.splice(index, 1);
 
     printCars();
     
 }
 
-function addCars() {
+function enableUpdateCar (id){
+    updatingId = id;
+    const car = cars.find((element) => element.id === id );
+   document.getElementById('brand').value = car.brand;
+   document.getElementById('model').value = car.model;
+   document.getElementById('color').value = car.color;
+   document.getElementById('year').value = car.year;
+   document.getElementById('price').value = car.price;
+
+   updating = true;
+}
+
+function addCar() {
+    if(updating){
+        updateCar();
+    } else {
+    let id = 1;
+    if(cars.length > 0){
     const id = cars[cars.length-1].id + 1;
+    }
+
     const brand = document.getElementById('brand').value;
     const model = document.getElementById('model').value;
     const color = document.getElementById('color').value;
@@ -83,6 +108,26 @@ function addCars() {
     printCars();
     document.getElementById('form-car').reset();
 }
+}
 
+function updateCar(){
+    const car = cars.find((car) => car.id === updatingId);
+    const brand = document.getElementById('brand').value;
+    const model = document.getElementById('model').value;
+    const color = document.getElementById('color').value;
+    const year = document.getElementById('year').value;
+    const price = document.getElementById('price').value;
+
+    car.brand = brand;
+    car.model = model;
+    car.color = color;
+    car.year = year;
+    car.price = price;
+    printCars();
+    document.getElementById('form-car').reset();
+    updating = false;
+    updatingId = -1;
+    
+}
 
 printCars();

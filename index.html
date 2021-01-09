@@ -14,7 +14,7 @@
     <div class="container mt-5">
         <div class="card bg-dark mb">
             <div class="card-body shadow-card">
-                <form id="form-user" onsubmit="event.preventDefault(), addCars()" action="/cars.php">
+                <form id="form-car" onsubmit="event.preventDefault(), addCar()" action="/cars.php">
                     <div class="form-group">
                         <label for="brand">Brand</label>
                         <input type="text" class="form-control" id="brand" placeholder="Enter the brand of the car" required>
@@ -36,6 +36,7 @@
                         <input type="text" class="form-control" id="price" placeholder="Enter the model of the car" required>
                     </div>
                     <button type="submit" class="btn btn-secondary">Submit</button>
+                    <button type="submit" class="btn btn-secondary">Actualizar</button>
                 </form>
             </div>
         </div>
