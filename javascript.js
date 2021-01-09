@@ -77,6 +77,10 @@ function enableUpdateCar (id){
    document.getElementById('price').value = car.price;
 
    updating = true;
+    const button = document.getElementById('save');
+    button.textContent = 'Actualizar';
+    button.classList.remove('btn-secondary');
+    button.classList.add('btn-primary');
 }
 
 function addCar() {
@@ -127,7 +131,10 @@ function updateCar(){
     document.getElementById('form-car').reset();
     updating = false;
     updatingId = -1;
-    
+    const button = document.getElementById('save');
+    button.textContent = 'Submit';
+    button.classList.remove('btn-primary');
+    button.classList.add('btn-secondary');    
 }
 
 printCars();
