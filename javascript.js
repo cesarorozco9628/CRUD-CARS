@@ -1,38 +1,4 @@
-const cars = [
-    {   
-        id: 1,
-        brand: 'Chevrolet',
-        model: 'Silverado',
-        color: 'Azul',
-        year: 2015,
-        price: '310000'
-    },
-    {   
-        id: 2,
-        brand: 'Ford',
-        model: 'Munstang',
-        color: 'Negro',
-        year: 2013,
-        price: '570000'
-    },
-    {   
-        id: 3,
-        brand: 'Mazda',
-        model: 'CX-3',
-        color: 'Rojo',
-        year: 2018,
-        price: '270000'
-    },
-    {   
-        id: 4,
-        brand: 'Nissan',
-        model: 'Sentra',
-        color: 'Blanco',
-        year: 2017,
-        price: '279000'
-    }
-];
-
+let cars = JSON.parse(localStorage.getItem('cars')) || [];
 let updating = false;
 let updatingId = -1;
 
@@ -111,6 +77,7 @@ function addCar() {
     }
     cars.push(newCar);
     printCars();
+    localStorage.setItem('cars', JSON.stringify(cars));
     document.getElementById('form-car').reset();
 }
 }
